@@ -52,6 +52,7 @@ function BrowserDashboard() {
       )}
       <strong>Email: </strong>
       {currentUser.email} <br />
+      {console.log(currentUser)}
       <Link>
         {" "}
         <button> Update Profile</button>{" "}

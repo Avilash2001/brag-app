@@ -9,12 +9,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import GoogleLogo from "../components/GoogleLogo";
 
 function BrowserSignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signUp } = useAuth();
+  const { signUp, googleSignUp } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -22,6 +23,19 @@ function BrowserSignUp() {
   const handleClose = () => {
     setError("");
   };
+
+  async function handleGoogle() {
+    try {
+      setError("");
+      setLoading(true);
+      await googleSignUp();
+      history.push("/");
+    } catch (error) {
+      setError("Error");
+      console.log(error);
+    }
+    setLoading(false);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -65,6 +79,15 @@ function BrowserSignUp() {
               </DialogActions>
             </Dialog>
           )}
+        </div>
+        <div className="browserSignUp__googleLoginBtnContainer">
+          <button
+            className="browserSignUp__googleLoginBtn"
+            onClick={handleGoogle}
+          >
+            <GoogleLogo />
+            Sign In With Google
+          </button>
         </div>
         <form
           className="browserSignUp__form"
