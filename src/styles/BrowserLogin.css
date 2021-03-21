@@ -1,0 +1,122 @@
+/* 4D4949 */
+.browserLogin {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(29, 28, 28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserLogin__formContainer {
+  width: 35%;
+  height: 68%;
+  background-color: rgba(8, 11, 16, 0.67);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.browserLogin__logo {
+  /* margin-top: 2.5rem; */
+  flex: 0.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserLogin__form {
+  /* background-color: white; */
+  flex: 0.7;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserLogin__formElement {
+  width: 60%;
+  margin: 1vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserLogin__formInput {
+  width: 100%;
+  background-color: #494949 !important;
+  outline: none;
+  border: none;
+  font-size: 1.2vw;
+  margin: 0 auto;
+  padding: 0.5vw 1vw;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #f2c94c !important;
+}
+
+.browserLogin__formInput::placeholder {
+  color: #f2c94c;
+  opacity: 1;
+}
+
+.browserLogin__formInput:focus {
+  border: 2px solid #f2c94c;
+}
+
+.browserLogin__formInput:-webkit-autofill {
+  -webkit-text-fill-color: #f2c94c !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.browserLogin__fromBtnContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserLogin__formBtn {
+  width: 58%;
+  border: 2px solid #f2c94c;
+  outline: none;
+  font-size: 1.2vw;
+  margin: 0 auto;
+  padding: 0.5vw;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #f2c94c;
+  background-color: inherit;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.browserLogin__forgotPass {
+  margin-top: 1rem;
+  color: #45d1b5;
+}
+
+.browserLogin__forgotPass:hover {
+  cursor: pointer;
+  border-bottom: #45d1b5 solid 1px;
+}
+
+.browserLogin__signUpLinkConatiner {
+  flex: 0.1;
+  color: #f2c94c;
+}
+
+.browserLogin__signUpLink {
+  color: #45d1b5;
+}
+
+.browserLogin__signUpLink:hover {
+  cursor: pointer;
+  border-bottom: #45d1b5 solid 1px;
+}
