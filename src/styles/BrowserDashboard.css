@@ -1,0 +1,113 @@
+.browserDashboard {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(29, 28, 28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.browserDashboard__sideBar {
+  width: 20%;
+  height: 100%;
+  background-color: rgba(8, 11, 16, 0.67);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.browserDashboard__sideBar-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.browserDashboard__sideBar-tab {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.3rem;
+  cursor: pointer;
+  transition: transform 300ms;
+}
+
+.browserDashboard__sideBar-tab:hover {
+  transform: scale(1.02);
+  background-color: rgb(29, 28, 28);
+}
+
+.browserDashboard__sideBar-tabName {
+  margin-left: 2rem;
+  color: #45d1b5;
+}
+
+.browserDashboard__sideBar-newBrag {
+  margin-top: 5rem;
+  cursor: pointer;
+  transition: transform 450ms;
+}
+
+.browserDashboard__sideBar-newBrag:hover {
+  transform: scale(1.05);
+}
+
+.browserDashboard__sideBar-profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.browserDashboard__sideBar-profile {
+  /* justify-self: end; */
+  margin-top: auto;
+  width: 90%;
+  height: 8vh;
+  background-color: rgb(29, 28, 28);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.browserDashboard__sideBar-profileImg {
+  height: 60%;
+  width: 3rem;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.browserDashboard__sideBar-profileDetails {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f2c94c;
+}
+.browserDashboard__sideBar-profileDetails > h5 {
+  font-weight: 300;
+}
+
+.browserDashboard__main {
+  width: 56%;
+  height: 100%;
+  background-color: rgb(29, 28, 28);
+}
+
+.browserDashboard__trendingContainer {
+  width: 24%;
+  height: 100%;
+  background-color: rgb(29, 28, 28);
+  display: flex;
+  align-items: center;
+}
+
+.browserDashboard__trending {
+  width: 100%;
+  height: 95%;
+  background-color: rgba(8, 11, 16, 0.67);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}

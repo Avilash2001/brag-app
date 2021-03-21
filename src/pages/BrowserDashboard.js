@@ -1,64 +1,74 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import "../styles/BrowserDashboard.css";
+import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import BragLogo from "../components/BragLogo";
+import HomeSvg from "../assets/HomeSvg";
+import YouSvg from "../assets/YouSvg";
+import DiscoverSvg from "../assets/DiscoverSvg";
+import BookmarkedSvg from "../assets/BookmarkedSvg";
+import NewBrag from "../assets/NewBrag";
 
 function BrowserDashboard() {
-  const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
 
-  const handleClose = () => {
-    setError("");
-  };
-
   async function handleLogout() {
-    setError("");
     try {
       await logout();
       history.push("/login");
-    } catch {
-      setError("Failed to logout");
+    } catch (error) {
+      console.log(error);
     }
   }
 
   return (
-    <div>
-      <h1>Profile</h1>
-      {error && (
-        <Dialog
-          open="true"
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Error !"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              {error}
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary" autoFocus>
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
-      )}
-      <strong>Email: </strong>
-      {currentUser.email} <br />
-      {console.log(currentUser)}
-      <Link>
-        {" "}
-        <button> Update Profile</button>{" "}
-      </Link>{" "}
-      <br />
-      <button onClick={handleLogout}>Logout</button>
+    <div className="browserDashboard">
+      <div className="browserDashboard__sideBar">
+        <BragLogo />
+        <div className="browserDashboard__sideBar-tabs">
+          <div className="browserDashboard__sideBar-tab">
+            <HomeSvg />
+            <h2 className="browserDashboard__sideBar-tabName">Home</h2>
+          </div>
+          <div className="browserDashboard__sideBar-tab">
+            <YouSvg />
+            <h2 className="browserDashboard__sideBar-tabName">You</h2>
+          </div>
+          <div className="browserDashboard__sideBar-tab">
+            <DiscoverSvg />
+            <h2 className="browserDashboard__sideBar-tabName">Discover</h2>
+          </div>
+          <div className="browserDashboard__sideBar-tab">
+            <BookmarkedSvg />
+            <h2 className="browserDashboard__sideBar-tabName">Bookmarked</h2>
+          </div>
+        </div>
+        <div className="browserDashboard__sideBar-newBrag">
+          <NewBrag />
+        </div>
+        <div className="browserDashboard__sideBar-profile-container">
+          <div className="browserDashboard__sideBar-profile">
+            {console.log(currentUser)}
+            <img
+              src={currentUser?.photoURL}
+              alt="profile-pic"
+              className="browserDashboard__sideBar-profileImg"
+            />
+            <div
+              className="browserDashboard__sideBar-profileDetails"
+              onClick={handleLogout}
+            >
+              <h2>{currentUser?.displayName}</h2>
+              <h5>{currentUser?.email}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="browserDashboard__main"></div>
+      <div className="browserDashboard__trendingContainer">
+        <div className="browserDashboard__trending"></div>
+      </div>
     </div>
   );
 }
