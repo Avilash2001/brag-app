@@ -8,6 +8,7 @@ import YouSvg from "../assets/YouSvg";
 import DiscoverSvg from "../assets/DiscoverSvg";
 import BookmarkedSvg from "../assets/BookmarkedSvg";
 import NewBrag from "../assets/NewBrag";
+import SearchIconSvg from "../assets/SearchIconSvg";
 
 function BrowserDashboard() {
   const { currentUser, logout } = useAuth();
@@ -50,24 +51,43 @@ function BrowserDashboard() {
         <div className="browserDashboard__sideBar-profile-container">
           <div className="browserDashboard__sideBar-profile">
             {console.log(currentUser)}
-            <img
-              src={currentUser?.photoURL}
-              alt="profile-pic"
-              className="browserDashboard__sideBar-profileImg"
-            />
-            <div
-              className="browserDashboard__sideBar-profileDetails"
-              onClick={handleLogout}
-            >
-              <h2>{currentUser?.displayName}</h2>
-              <h5>{currentUser?.email}</h5>
+            <div className="browserDashboard__sideBarBtns">
+              <button className="browserDashboard__sideBarBtn">Profile</button>
+              <button
+                className="browserDashboard__sideBarBtn"
+                onClick={handleLogout}
+              >
+                Log Out
+              </button>
+            </div>
+            <div className="browserDashboard__sideBar-profile-lower">
+              <img
+                src={currentUser?.photoURL}
+                alt="profile-pic"
+                className="browserDashboard__sideBar-profileImg"
+              />
+              <div className="browserDashboard__sideBar-profileDetails">
+                <h2>{currentUser?.displayName}</h2>
+                <h5>{currentUser?.email}</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="browserDashboard__main"></div>
       <div className="browserDashboard__trendingContainer">
-        <div className="browserDashboard__trending"></div>
+        <div className="browserDashboard__trending">
+          <div className="browserDashboard__trending_searchCont">
+            <div className="browserDashboard__trending_search">
+              <SearchIconSvg />
+              <input
+                className="browserDashboard__trending_searchBar"
+                type="search"
+                placeholder="Search"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
